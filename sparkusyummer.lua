@@ -17108,13 +17108,12 @@ TrackConnection(RunService.Heartbeat:Connect(UnifiedHeartbeat))
 
 createHoverHighlight()
 
-local perfThread = task.spawn(function()
+TrackThread(task.spawn(function()
     while Sp3arParvus.Active do
         UpdatePerformanceDisplay()
         task.wait(0.5)
     end
-end)
-TrackThread(perfThread)
+end))
 
 print(string.format("[yummer^^ v%s] Developer tool loaded successfully!", VERSION))
 if SAFE_MODE then
